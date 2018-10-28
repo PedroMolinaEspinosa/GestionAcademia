@@ -1,4 +1,4 @@
-package modelo;
+package modelo.DTO;
 
 public class ProfesorAsignatura {
 
@@ -9,7 +9,7 @@ public class ProfesorAsignatura {
 	// CONSTRUCTOR
 
 	public ProfesorAsignatura() {
-		super();
+		
 	}
 
 	public ProfesorAsignatura(int asignatura, int profesor, int horasSemanales) {
