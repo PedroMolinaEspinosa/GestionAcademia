@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cliente>
+    <telefono>0</telefono>
+    <id>0</id>
+    <listaClientes nif="27879364H">
+        <nombre>pepe</nombre>
+        <apellido>ojete</apellido>
+        <email>nose@hot.com</email>
+        <telefono>999999991</telefono>
+        <id>123457</id>
+        <direccion>
+            <tipoVia>Calle</tipoVia>
+            <nombreVia>ojete</nombreVia>
+            <cp>23006</cp>
+            <localidad>Jaén</localidad>
+        </direccion>
+    </listaClientes>
+    <listaClientes nif="27879344E">
+        <nombre>ay</nombre>
+        <apellido>ojete</apellido>
+        <email>nose1@hot.com</email>
+        <telefono>999999992</telefono>
+        <id>123457</id>
+        <direccion>
+            <tipoVia>Av</tipoVia>
+            <nombreVia>panete</nombreVia>
+            <cp>23008</cp>
+            <localidad>Jaén</localidad>
+        </direccion>
+    </listaClientes>
+    <listaClientes nif="27879464A">
+        <nombre>que</nombre>
+        <apellido>si</apellido>
+        <email>nose2@hot.com</email>
+        <telefono>999999993</telefono>
+        <id>123457</id>
+        <direccion>
+            <tipoVia>Av</tipoVia>
+            <nombreVia>jujete</nombreVia>
+            <cp>23006</cp>
+            <localidad>Jaén</localidad>
+        </direccion>
+    </listaClientes>
+    <listaClientes nif="27873364G">
+        <nombre>o</nombre>
+        <apellido>no</apellido>
+        <email>nose3@hot.com</email>
+        <telefono>999999994</telefono>
+        <id>123457</id>
+        <direccion>
+            <tipoVia>Calle</tipoVia>
+            <nombreVia>ole</nombreVia>
+            <cp>23006</cp>
+            <localidad>Jaén</localidad>
+        </direccion>
+    </listaClientes>
+</cliente>
