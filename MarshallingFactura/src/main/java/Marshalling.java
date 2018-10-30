@@ -10,7 +10,7 @@ public class Marshalling {
 
 	public static void main(String[] args) {
 		Facturas facturas = new Facturas();
-
+//
 		try {
 			JAXBContext jaxbContext;
 			jaxbContext = JAXBContext.newInstance(facturas.getClass());
