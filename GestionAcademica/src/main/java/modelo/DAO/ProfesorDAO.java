@@ -8,21 +8,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.DTO.Profesor;
+import modelo.DTO.ProfesorPOJO;
 
 public class ProfesorDAO {
 	private Connection conexion;
 
-	public List<Profesor> listarTodosLosProfesores() {
-		List<Profesor> listaProfesores = new ArrayList<Profesor>();
+	public List<ProfesorPOJO> listarTodosLosProfesores() {
+		List<ProfesorPOJO> listaProfesores = new ArrayList<ProfesorPOJO>();
 		// Crear objeto Statement
 		String sql = "SELECT * FROM PROFESOR ORDER BY id;";
 		try (Statement statement = conexion.createStatement();) {
 			// Crear objeto ResultSet
 			ResultSet resulset = statement.executeQuery(sql);
 			while (resulset.next()) {
-				Profesor profesor = new Profesor(resulset.getString(1), resulset.getString(2), resulset.getInt(3),
-						resulset.getString(4));
+				ProfesorPOJO profesor = new ProfesorPOJO(resulset.getInt(1), resulset.getString(2),
+						resulset.getString(3));
 				listaProfesores.add(profesor);
 
 			}
@@ -34,17 +34,15 @@ public class ProfesorDAO {
 		return listaProfesores;
 	}
 
-	public boolean insertarProfesor(Profesor profesor) {
+	public boolean insertarProfesor(ProfesorPOJO profesor) {
 		int resultado = 0;
 
-		String sql = "INSERT INTO PROFESOR VALUES (?,?,?,?)";
+		String sql = "INSERT INTO PROFESOR VALUES (?,?)";
 
 		try (PreparedStatement psStatement = conexion.prepareStatement(sql);) {
 
 			psStatement.setString(1, profesor.getNombre());
 			psStatement.setString(2, profesor.getApellidos());
-			psStatement.setInt(3, profesor.getTelefono());
-			psStatement.setString(4, profesor.getDni());
 
 			resultado = psStatement.executeUpdate();
 
@@ -76,13 +74,12 @@ public class ProfesorDAO {
 	public boolean actualizarProfesor(String nombre, String apellidos, int telefono, String dni, int id) {
 		int updates = 0;
 
-		String sql = "UPDATE PROFESOR SET nombre = ?, apellidos = ?, telefono = ?, dni = ? WHERE id = ?;";
+		String sql = "UPDATE PROFESOR SET nombre = ?, apellidos = ? WHERE id = ?;";
 		try (PreparedStatement preparedStatement = conexion.prepareStatement(sql);) {
 			preparedStatement.setString(1, nombre);
 			preparedStatement.setString(2, apellidos);
-			preparedStatement.setInt(3, telefono);
-			preparedStatement.setString(4, dni);
-			preparedStatement.setInt(5, id);
+
+			preparedStatement.setInt(3, id);
 
 			updates = preparedStatement.executeUpdate();
 
@@ -94,9 +91,9 @@ public class ProfesorDAO {
 
 	}
 
-	public boolean insertarListaProfesores(List<Profesor> listaProfesores) {
+	public boolean insertarListaProfesores(List<ProfesorPOJO> listaProfesores) {
 
-		for (Profesor profesor : listaProfesores) {
+		for (ProfesorPOJO profesor : listaProfesores) {
 			insertarProfesor(profesor);
 		}
 

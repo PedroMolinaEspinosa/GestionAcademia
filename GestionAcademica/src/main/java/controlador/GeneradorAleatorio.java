@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 import modelo.DTO.Alumno;
-import modelo.DTO.Profesor;
+import modelo.DTO.ProfesorPOJO;
 
 public class GeneradorAleatorio {
 
@@ -98,10 +98,10 @@ public class GeneradorAleatorio {
 		return listaAlumnosGenerados;
 	}
 
-	public static List<Profesor> generarProfesor(int i) {
+	public static List<ProfesorPOJO> generarProfesor(int i) {
 
-		List<Profesor> listaProfesores = new ArrayList<Profesor>();
-		List<Profesor> listaProfesoresGenerados = new ArrayList<Profesor>();
+		List<ProfesorPOJO> listaProfesores = new ArrayList<ProfesorPOJO>();
+		List<ProfesorPOJO> listaProfesoresGenerados = new ArrayList<ProfesorPOJO>();
 
 		String nombre;
 		String apellido;
@@ -117,7 +117,7 @@ public class GeneradorAleatorio {
 
 				nombre = campo[0];
 				apellido = campo[1];
-				Profesor profesor = new Profesor(nombre, apellido, 0, "");
+				ProfesorPOJO profesor = new ProfesorPOJO(nombre, apellido);
 
 				listaProfesores.add(profesor);
 				// System.out.println(alumno.toString());
@@ -133,13 +133,13 @@ public class GeneradorAleatorio {
 			int generarNombre = random.nextInt(100);
 			int generarApellido = random1.nextInt(100);
 
-			Profesor profesorPreProcesoNombre = listaProfesores.get(generarNombre);
+			ProfesorPOJO profesorPreProcesoNombre = listaProfesores.get(generarNombre);
 			nombre = profesorPreProcesoNombre.getNombre();
-			Profesor profesorPreProcesoApellido = listaProfesores.get(generarApellido);
+			ProfesorPOJO profesorPreProcesoApellido = listaProfesores.get(generarApellido);
 			apellido = profesorPreProcesoApellido.getApellidos();
 			telefono = generarTelefono();
 			dni = generarDNI();
-			Profesor profesor = new Profesor(nombre, apellido, telefono, dni);
+			ProfesorPOJO profesor = new ProfesorPOJO(nombre, apellido);
 			System.out.println(profesor.toString());
 			listaProfesoresGenerados.add(profesor);
 
